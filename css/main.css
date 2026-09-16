@@ -79,4 +79,49 @@ h3 {
     margin: 30px 0;
     padding: 15px 30px;
   }
+
+  .image-container {
+    margin: 0px;
+  }
+
+  .sign-image {
+    transform: scale(1.4);
+  }
+
+  .sign-title,
+  .sign-date {
+    margin: 10px 0px;
+  }
+
+  .sign-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .sign-date {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .sign-components {
+    gap: 20px;
+  }
+
+  .component-container {
+    width: 160px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .component-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .component-label {
+    font-size: 20px;
+  }
+
+  .component-title {
+    font-size: 18px;
+  }
 }

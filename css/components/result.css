@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.sign-container {
+.image-container {
   margin-bottom: 20px;
   width: min(80vw, 250px);
   aspect-ratio: 1 / 1;
@@ -19,7 +19,7 @@
 
 .sign-title,
 .sign-date {
-  margin-bottom: 0px;
+  margin: 10px 0px;
 }
 
 .sign-title {
@@ -39,7 +39,7 @@
 
 .sign-components {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
   gap: 40px;
 }
 
@@ -47,7 +47,7 @@
 .component-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -72,7 +72,7 @@
 
 .component-title {
   color: var(--text-color);
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 2px;
   font-weight: bold;
   font-family: "Outfit", sans-serif;

@@ -23,7 +23,7 @@
     </div>
 
     <!-- Landing View -->
-    <div id="input-container">
+    <div id="input-container" class="display-none">
       <!-- Wheel of Fortune -->
       <div class="wheel-container">
         <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
@@ -87,15 +87,19 @@
     </div>
 
     <!-- Result View -->
-    <div id="result-container" class="display-none">
+    <div id="result-container">
       <!-- Sign Image -->
-      <div class="sign-container">
-        <img class="sign-image" src="" alt="Sign Image" />
+      <div class="image-container">
+        <img
+          class="sign-image"
+          src="./assets/images/taurus.webp"
+          alt="Sign Image"
+        />
       </div>
 
       <!-- Sign Name and Date -->
-      <h2 class="sign-title"></h2>
-      <p class="sign-date"></p>
+      <h2 class="sign-title">Taurus</h2>
+      <p class="sign-date">Jan 10 - Jan 19</p>
 
       <!-- Sign Element and Planet -->
       <div class="sign-components">
@@ -105,10 +109,10 @@
             <img
               id="element-image"
               class="component-image"
-              src=""
+              src="./assets/icons/earth.webp"
               alt="Element Image"
             />
-            <h3 id="element-title" class="component-title"></h3>
+            <h3 id="element-title" class="component-title">Earth (Fixed)</h3>
           </div>
         </div>
 
@@ -121,7 +125,7 @@
               src="./assets/icons/earth.webp"
               alt="Planet Symbol"
             />
-            <h3 id="planet-title" class="component-title"></h3>
+            <h3 id="planet-title" class="component-title">Venus</h3>
           </div>
         </div>
       </div>
