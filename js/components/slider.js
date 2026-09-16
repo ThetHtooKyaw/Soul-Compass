@@ -69,6 +69,7 @@ export function createSliderItems({
     },
   };
 
+  // Functions
   function addEdgeSpace() {
     const firstItem = slider.firstElementChild;
     const lastItem = slider.lastElementChild;

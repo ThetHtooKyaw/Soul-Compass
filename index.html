@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Horoscope App</title>
+
+    <!-- Import from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
     <link href="./css/main.css" rel="stylesheet" />
     <script src="./js/main.js" type="module"></script>
   </head>
@@ -13,63 +22,107 @@
       <div class="loader-animater"></div>
     </div>
 
-    <!-- Wheel of Fortune -->
-    <div class="wheel-container">
-      <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
-      <img
-        class="zodiac-wheel"
-        src="assets/images/zodiac_wheel_white.webp"
-        alt="Zodiac Wheel"
-      />
+    <!-- Landing View -->
+    <div id="input-container">
+      <!-- Wheel of Fortune -->
+      <div class="wheel-container">
+        <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
+        <img
+          class="zodiac-wheel"
+          src="assets/images/zodiac_wheel_white.webp"
+          alt="Zodiac Wheel"
+        />
+      </div>
+
+      <!-- Slider Container -->
+      <div class="slider-container">
+        <!-- Year Slider -->
+        <div id="step-1" class="slider-row animate-fade-up">
+          <p class="slider-label">Under Which Year's Sky<br />Were You Born?</p>
+          <div class="slider-shell">
+            <div id="year-slider" class="slider-viewport"></div>
+          </div>
+          <button id="confirm-year" class="confirm_button" type="button">
+            Reveal Path
+          </button>
+        </div>
+
+        <!-- Month Slider -->
+        <div id="step-2" class="slider-row display-none">
+          <p class="slider-label">
+            In Which Month<br />the Stars Begin to Align?
+          </p>
+          <div class="slider-shell">
+            <div id="month-slider" class="slider-viewport"></div>
+          </div>
+
+          <div class="button-container">
+            <button id="cancel-month" class="cancel_button" type="button">
+              Return
+            </button>
+            <button id="confirm-month" class="confirm_button" type="button">
+              Bind Stars
+            </button>
+          </div>
+        </div>
+
+        <!-- Day Slider -->
+        <div id="step-3" class="slider-row display-none">
+          <p class="slider-label">
+            On Which Day<br />the Alignment Become Complete?
+          </p>
+          <div class="slider-shell">
+            <div id="day-slider" class="slider-viewport"></div>
+          </div>
+          <div class="button-container">
+            <button id="cancel-day" class="cancel_button" type="button">
+              Return
+            </button>
+            <button id="confirm-day" class="confirm_button" type="button">
+              Seal Destiny
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Slider Container -->
-    <div class="slider-container">
-      <!-- Year Slider -->
-      <div id="step-1" class="slider-row animate-fade-up">
-        <p class="slider-label">Under Which Year's Sky<br />Were You Born?</p>
-        <div class="slider-shell">
-          <div id="year-slider" class="slider-viewport"></div>
-        </div>
-        <button id="confirm-year" class="confirm_button" type="button">
-          Reveal Path
-        </button>
+    <!-- Result View -->
+    <div id="result-container" class="display-none">
+      <!-- Sign Image -->
+      <div class="sign-container">
+        <img class="sign-image" src="" alt="Sign Image" />
       </div>
 
-      <!-- Month Slider -->
-      <div id="step-2" class="slider-row display-none">
-        <p class="slider-label">
-          In Which Month<br />the Stars Begin to Align?
-        </p>
-        <div class="slider-shell">
-          <div id="month-slider" class="slider-viewport"></div>
+      <!-- Sign Name and Date -->
+      <h2 class="sign-title"></h2>
+      <p class="sign-date"></p>
+
+      <!-- Sign Element and Planet -->
+      <div class="sign-components">
+        <div class="component">
+          <h3 class="component-label">Element</h3>
+          <div class="component-container">
+            <img
+              id="element-image"
+              class="component-image"
+              src=""
+              alt="Element Image"
+            />
+            <h3 id="element-title" class="component-title"></h3>
+          </div>
         </div>
 
-        <div class="button-container">
-          <button id="cancel-month" class="cancel_button" type="button">
-            Return
-          </button>
-          <button id="confirm-month" class="confirm_button" type="button">
-            Bind Stars
-          </button>
-        </div>
-      </div>
-
-      <!-- Day Slider -->
-      <div id="step-3" class="slider-row display-none">
-        <p class="slider-label">
-          On Which Day<br />the Alignment Become Complete?
-        </p>
-        <div class="slider-shell">
-          <div id="day-slider" class="slider-viewport"></div>
-        </div>
-        <div class="button-container">
-          <button id="cancel-day" class="cancel_button" type="button">
-            Return
-          </button>
-          <button id="confirm-day" class="confirm_button" type="button">
-            Seal Destiny
-          </button>
+        <div class="component">
+          <h3 class="component-label">Planet</h3>
+          <div class="component-container">
+            <img
+              id="planet-image"
+              class="component-image"
+              src="./assets/icons/earth.webp"
+              alt="Planet Symbol"
+            />
+            <h3 id="planet-title" class="component-title"></h3>
+          </div>
         </div>
       </div>
     </div>

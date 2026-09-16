@@ -1,0 +1,79 @@
+#result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-container {
+  margin-bottom: 20px;
+  width: min(80vw, 250px);
+  aspect-ratio: 1 / 1;
+}
+
+.sign-image {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.6);
+  transform-origin: center;
+}
+
+.sign-title,
+.sign-date {
+  margin-bottom: 0px;
+}
+
+.sign-title {
+  color: var(--secondary-color);
+  font-size: 50px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.sign-date {
+  color: var(--text-color);
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  font-family: "Outfit", sans-serif;
+}
+
+.sign-components {
+  display: flex;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.component,
+.component-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-container {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--disabled-color);
+  border-radius: 20px;
+}
+
+.component-label {
+  color: var(--secondary-color);
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.component-image {
+  width: 100px;
+  height: 100px;
+}
+
+.component-title {
+  color: var(--text-color);
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-family: "Outfit", sans-serif;
+}

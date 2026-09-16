@@ -8,6 +8,7 @@ const zodiacWheel = document.querySelector(".zodiac-wheel");
 const degreesPerSign = 360 / 12;
 const fullSpins = 360 * 3;
 
+// Exported Functions
 export function spinWheel() {
   return animateWheelToRotation({ rotation: fullSpins });
 }
@@ -20,24 +21,26 @@ export function spinBetweenSigns({ month }) {
   return animateWheelToRotation({ rotation: fullSpins + alignmentAngle });
 }
 
-export function spinToSign({ month, day }) {
+export async function spinToSign({ month, day }) {
   const zodiacSign = getZodiacSign({ month, day });
 
   if (!zodiacSign) {
-    return Promise.resolve();
+    return null;
   }
 
-  const signIndex = zodiacWheelItem.indexOf(zodiacSign.name);
+  const signIndex = zodiacWheelItem.indexOf(zodiacSign.name.toLowerCase());
   const signCenterAngle = signIndex * degreesPerSign + 15;
   const targetRotation = (360 - signCenterAngle) % 360;
   const remainingRotation = getRotationDifference(targetRotation);
 
-  return animateWheelToRotation({ rotation: fullSpins + remainingRotation });
+  await animateWheelToRotation({ rotation: fullSpins + remainingRotation });
+
+  return zodiacSign;
 }
 
 export function reverseWheel() {
   if (lastRotation === 0) {
-    return Promise.resolve();
+    return null;
   }
 
   const reverseRotation = -lastRotation;
@@ -50,6 +53,7 @@ export function reverseWheel() {
   });
 }
 
+// Helper Functions
 function animateWheelToRotation({ rotation }) {
   wheelRotation += rotation;
   lastRotation = wheelRotation;

@@ -2,6 +2,7 @@
 let currentStep = 1;
 const totalSteps = 3;
 
+// Exported Functions
 export function changeStep(direction) {
   let nextStep = currentStep + direction;
 
@@ -22,4 +23,12 @@ export function changeStep(direction) {
   }
 
   currentStep = nextStep;
+}
+
+export function resultStep() {
+  const inputContainer = document.getElementById("input-container");
+  const resultContainer = document.getElementById("result-container");
+
+  inputContainer.classList.add("display-none");
+  resultContainer.classList.remove("display-none");
 }

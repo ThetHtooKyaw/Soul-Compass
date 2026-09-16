@@ -1,4 +1,5 @@
 import { initializeLoader } from "./components/loader.js";
+import { monthShortNames } from "../model/zodiac_model.js";
 import {
   spinWheel,
   spinBetweenSigns,
@@ -6,7 +7,8 @@ import {
   reverseWheel,
 } from "./components/wheel.js";
 import { createSliderItems } from "./components/slider.js";
-import { changeStep } from "./components/steps.js";
+import { changeStep, resultStep } from "./components/steps.js";
+import { displayZodiacResult } from "./components/result.js";
 
 initializeLoader();
 
@@ -14,20 +16,6 @@ initializeLoader();
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
 const currentDay = new Date().getDate();
-const monthShortNames = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
 
 function getDaysInMonth({ year, month }) {
   return new Date(year, month, 0).getDate();
@@ -44,6 +32,7 @@ const cancelMonthButton = document.getElementById("cancel-month");
 const confirmDayButton = document.getElementById("confirm-day");
 const cancelDayButton = document.getElementById("cancel-day");
 
+// Slider Controllers
 const yearSliderController = createSliderItems({
   slider: yearSlider,
   min: currentYear - 40,
@@ -62,6 +51,8 @@ const monthSliderController = createSliderItems({
 
 let daySliderController = null;
 
+// Event Listeners
+// Year Components
 confirmYearButton.addEventListener("click", async () => {
   const selectedYear = yearSliderController.getValue();
 
@@ -84,6 +75,7 @@ confirmYearButton.addEventListener("click", async () => {
   });
 });
 
+// Month Components
 confirmMonthButton.addEventListener("click", async () => {
   const selectedYear = yearSliderController.getValue();
   const selectedMonth = monthSliderController.getValue();
@@ -140,6 +132,7 @@ cancelMonthButton.addEventListener("click", async () => {
   });
 });
 
+// Day Components
 confirmDayButton.addEventListener("click", async () => {
   const selectedMonth = monthSliderController.getValue();
   const selectedDay = daySliderController.getValue();
@@ -149,10 +142,18 @@ confirmDayButton.addEventListener("click", async () => {
 
   daySliderController.lockScroll();
   daySliderController.animateActiveItem();
-  await spinToSign({ month: selectedMonth, day: selectedDay });
+  const selectedZodiacSign = await spinToSign({
+    month: selectedMonth,
+    day: selectedDay,
+  });
   daySliderController.unlockScroll();
 
   changeStep(1);
+  resultStep();
+
+  if (selectedZodiacSign) {
+    displayZodiacResult({ zodiacSign: selectedZodiacSign });
+  }
 });
 
 cancelDayButton.addEventListener("click", async () => {

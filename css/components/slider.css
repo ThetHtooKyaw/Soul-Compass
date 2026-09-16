@@ -18,10 +18,6 @@
   animation: fadeDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.display-none {
-  display: none !important;
-}
-
 .slider-label {
   margin-bottom: 40px;
   text-align: center;
