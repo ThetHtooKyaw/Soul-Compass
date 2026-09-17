@@ -23,7 +23,7 @@
     </div>
 
     <!-- Landing View -->
-    <div id="input-container" class="display-none">
+    <div id="input-container">
       <!-- Wheel of Fortune -->
       <div class="wheel-container">
         <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
@@ -87,47 +87,69 @@
     </div>
 
     <!-- Result View -->
-    <div id="result-container">
+    <div id="result-container" class="display-none">
       <!-- Sign Image -->
       <div class="image-container">
-        <img
-          class="sign-image"
-          src="./assets/images/taurus.webp"
-          alt="Sign Image"
-        />
+        <img class="sign-image" src="" alt="Sign Image" />
       </div>
 
       <!-- Sign Name and Date -->
-      <h2 class="sign-title">Taurus</h2>
-      <p class="sign-date">Jan 10 - Jan 19</p>
+      <h2 class="sign-title"></h2>
+      <p class="sign-date"></p>
 
-      <!-- Sign Element and Planet -->
+      <!-- Sign Components -->
       <div class="sign-components">
-        <div class="component">
-          <h3 class="component-label">Element</h3>
-          <div class="component-container">
+        <!-- Sign Element -->
+        <div class="dropdown-wrapper">
+          <button id="element-button" class="component-label">Element</button>
+          <div id="element-container" class="component-container">
             <img
               id="element-image"
               class="component-image"
-              src="./assets/icons/earth.webp"
+              src=""
               alt="Element Image"
             />
-            <h3 id="element-title" class="component-title">Earth (Fixed)</h3>
+            <h3 id="element-title" class="component-title"></h3>
           </div>
         </div>
 
-        <div class="component">
-          <h3 class="component-label">Planet</h3>
-          <div class="component-container">
+        <!-- Sign Planet -->
+        <div class="dropdown-wrapper">
+          <button id="planet-button" class="component-label">Planet</button>
+          <div id="planet-container" class="component-container">
             <img
               id="planet-image"
               class="component-image"
-              src="./assets/icons/earth.webp"
+              src=""
               alt="Planet Symbol"
             />
-            <h3 id="planet-title" class="component-title">Venus</h3>
+            <h3 id="planet-title" class="component-title"></h3>
           </div>
         </div>
+      </div>
+
+      <!-- Sun Sign Description -->
+      <div class="content-container">
+        <h3 class="content-title">True Self</h3>
+        <p id="sun-sign" class="content-description"></p>
+      </div>
+
+      <!-- Strengths Description -->
+      <div class="content-container">
+        <h3 class="content-title">Your Strengths</h3>
+        <p id="strengths" class="content-description"></p>
+      </div>
+
+      <!-- Weaknesses Description -->
+      <div class="content-container">
+        <h3 class="content-title">Your Weaknesses</h3>
+        <p id="weaknesses" class="content-description"></p>
+      </div>
+
+      <!-- Compatibility Description -->
+      <div class="content-container">
+        <h3 class="content-title">Compatibility</h3>
+        <p id="compatibility" class="content-description"></p>
       </div>
     </div>
   </body>

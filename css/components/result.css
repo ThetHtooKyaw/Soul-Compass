@@ -1,7 +1,10 @@
 #result-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 100px 0px;
+  width: min(100%, 700px);
 }
 
 .image-container {
@@ -39,30 +42,62 @@
 
 .sign-components {
   display: flex;
-  margin-top: 10px;
+  margin: 20px 0px;
   gap: 40px;
 }
 
-.component,
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.component-label {
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 30px;
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.component-container,
+.component-label {
+  width: 200px;
+}
+
 .component-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-}
-
-.component-container {
-  width: 200px;
   aspect-ratio: 1 / 1;
   background-color: var(--disabled-color);
   border-radius: 20px;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s;
 }
 
-.component-label {
+.component-label.is-changed {
   color: var(--secondary-color);
-  font-size: 24px;
-  letter-spacing: 2px;
-  font-weight: bold;
+  background-color: transparent;
+  font-size: 28px;
+  border: none;
+}
+
+.component-container.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .component-image {
@@ -70,10 +105,36 @@
   height: 100px;
 }
 
+#planet-image {
+  transform: scale(1.6);
+}
+
 .component-title {
   color: var(--text-color);
   font-size: 24px;
   letter-spacing: 2px;
   font-weight: bold;
+  font-family: "Outfit", sans-serif;
+}
+
+.content-container {
+  margin-top: 20px;
+}
+
+.content-title {
+  margin: 10px 0px;
+  color: var(--secondary-color);
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.content-description {
+  text-align: justify;
+  text-indent: 40px;
+  color: var(--text-color);
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 100;
   font-family: "Outfit", sans-serif;
 }

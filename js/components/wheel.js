@@ -14,7 +14,8 @@ export function spinWheel() {
 }
 
 export function spinBetweenSigns({ month }) {
-  const boundaryIndex = (3 - month + 12) % 12;
+  const WHEEL_START_MONTH = 3;
+  const boundaryIndex = (WHEEL_START_MONTH - month + 12) % 12;
   const boundaryAngle = boundaryIndex * degreesPerSign;
   const alignmentAngle = 360 - boundaryAngle;
 
@@ -48,21 +49,33 @@ export function reverseWheel() {
   wheelRotation += reverseRotation;
   zodiacWheel.style.transform = `rotate(${wheelRotation}deg)`;
 
-  return new Promise((resolve) => {
-    zodiacWheel.addEventListener("transitionend", resolve, { once: true });
-  });
+  return waitForTransitionEnd(zodiacWheel);
 }
 
 // Helper Functions
+function waitForTransitionEnd(element, timeoutMs = 800) {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      element.removeEventListener("transitionend", finish);
+      resolve();
+    };
+
+    const timer = setTimeout(finish, timeoutMs);
+    element.addEventListener("transitionend", finish, { once: true });
+  });
+}
+
 function animateWheelToRotation({ rotation }) {
   wheelRotation += rotation;
   lastRotation = wheelRotation;
 
   zodiacWheel.style.transform = `rotate(${wheelRotation}deg)`;
 
-  return new Promise((resolve) => {
-    zodiacWheel.addEventListener("transitionend", resolve, { once: true });
-  });
+  return waitForTransitionEnd(zodiacWheel);
 }
 
 function getZodiacSign({ month, day }) {

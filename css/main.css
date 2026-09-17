@@ -80,6 +80,10 @@ h3 {
     padding: 15px 30px;
   }
 
+  #result-container {
+    padding: 60px 20px;
+  }
+
   .image-container {
     margin: 0px;
   }
@@ -104,12 +108,18 @@ h3 {
   }
 
   .sign-components {
+    margin-top: 0px;
+    margin-bottom: 20px;
     gap: 20px;
   }
 
-  .component-container {
+  .component-label {
+    font-size: 20px;
+  }
+
+  .component-container,
+  .component-label {
     width: 160px;
-    aspect-ratio: 1 / 1;
   }
 
   .component-image {
@@ -117,11 +127,21 @@ h3 {
     height: 80px;
   }
 
-  .component-label {
-    font-size: 20px;
+  .component-title {
+    font-size: 18px;
   }
 
-  .component-title {
+  .content-container {
+    margin-top: 10px;
+  }
+
+  .content-title {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .content-description {
+    text-indent: 20px;
     font-size: 18px;
   }
 }

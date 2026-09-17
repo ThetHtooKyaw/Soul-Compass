@@ -31,4 +31,5 @@ export function resultStep() {
 
   inputContainer.classList.add("display-none");
   resultContainer.classList.remove("display-none");
+  resultContainer.classList.add("animate-fade-up");
 }
