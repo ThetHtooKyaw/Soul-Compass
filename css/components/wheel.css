@@ -6,7 +6,6 @@
 
 .wheel-container {
   position: relative;
-  margin-top: 20px;
   width: min(90vw, 500px);
   aspect-ratio: 1 / 1;
 }

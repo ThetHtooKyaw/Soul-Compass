@@ -5,9 +5,10 @@ import {
   spinBetweenSigns,
   spinToSign,
   reverseWheel,
+  resetWheel,
 } from "./components/wheel.js";
 import { createSliderItems } from "./components/slider.js";
-import { changeStep, resultStep } from "./components/steps.js";
+import { changeStep, resultStep, restartJourney } from "./components/steps.js";
 import {
   displayZodiacResult,
   toggleElement,
@@ -38,6 +39,7 @@ const cancelDayButton = document.getElementById("cancel-day");
 
 const elementButton = document.getElementById("element-button");
 const planetButton = document.getElementById("planet-button");
+const restartButton = document.getElementById("restart-button");
 
 // Slider Controllers
 const yearSliderController = createSliderItems({
@@ -176,7 +178,7 @@ confirmDayButton.addEventListener("click", async () => {
       month: selectedMonth,
       day: selectedDay,
     });
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 5800));
 
     changeStep(1);
     resultStep();
@@ -224,4 +226,10 @@ elementButton.addEventListener("click", function (event) {
 planetButton.addEventListener("click", function (event) {
   event.stopPropagation();
   togglePlanet();
+});
+
+restartButton.addEventListener("click", function (event) {
+  event.stopPropagation();
+  resetWheel();
+  restartJourney();
 });

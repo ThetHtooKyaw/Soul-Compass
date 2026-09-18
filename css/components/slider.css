@@ -1,5 +1,5 @@
 .slider-container {
-  width: min(100%, 800px);
+  width: min(100%, 700px);
   margin-top: 20px;
 }
 
@@ -35,12 +35,10 @@
 
 .slider-shell,
 .slider-viewport {
-  width: 100%;
-  max-width: 500px;
+  width: min(100%, 500px);
 }
 
 .slider-viewport {
-  visibility: hidden;
   display: flex;
   flex: 1;
   align-items: center;
@@ -50,6 +48,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  visibility: hidden;
 
   scroll-snap-type: x-mandatory;
   scroll-behavior: smooth;

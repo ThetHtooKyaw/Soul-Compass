@@ -118,7 +118,8 @@
 }
 
 .content-container {
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .content-title {

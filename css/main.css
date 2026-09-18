@@ -24,7 +24,9 @@ html,
 body {
   margin: 0;
   width: 100%;
+  min-width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,7 +35,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
-  overflow-x: hidden;
   background-color: var(--primary-color);
   font-family:
     "DM Sans",
@@ -52,32 +53,61 @@ h3 {
 }
 
 @media (max-width: 600px) {
+  #input-container {
+    padding: 60px 20px;
+  }
+
   .pointer {
     width: 35px;
     height: 35px;
   }
+
+  .slider-container,
+  .slider-shell,
+  .slider-viewport {
+    width: min(100%, 370px);
+  }
+
+  .slider-shell::before,
+  .slider-shell::after {
+    width: 20px;
+  }
+
   .slider-label {
     margin-bottom: 20px;
+    width: 100%;
     font-size: 24px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    overflow-wrap: break-word;
   }
 
-  .slider-viewport p {
-    font-size: 24px;
+  .slider-viewport {
+    margin-bottom: 30px;
   }
 
+  .slider-viewport p,
   .slider-viewport p.active {
+    padding: 20px 10px;
     font-size: 24px;
   }
 
   .slider-shell::before,
   .slider-shell::after {
-    width: 80px;
+    width: 160px;
   }
 
-  button {
-    margin: 30px 0;
-    padding: 15px 30px;
+  .button-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+  }
+
+  .confirm_button,
+  .cancel_button {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 18px;
   }
 
   #result-container {
@@ -108,8 +138,6 @@ h3 {
   }
 
   .sign-components {
-    margin-top: 0px;
-    margin-bottom: 20px;
     gap: 20px;
   }
 
@@ -132,16 +160,21 @@ h3 {
   }
 
   .content-container {
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   .content-title {
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .content-description {
     text-indent: 20px;
     font-size: 18px;
   }
+
+  #restart-button {
+  width: 300px;
+}
 }

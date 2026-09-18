@@ -52,6 +52,16 @@ export function reverseWheel() {
   return waitForTransitionEnd(zodiacWheel);
 }
 
+export function resetWheel() {
+  wheelRotation = 0;
+  lastRotation = 0;
+  zodiacWheel.style.transition = "none";
+  zodiacWheel.style.transform = `rotate(0deg)`;
+
+  void zodiacWheel.offsetWidth;
+  zodiacWheel.style.transition = "";
+}
+
 // Helper Functions
 function waitForTransitionEnd(element, timeoutMs = 800) {
   return new Promise((resolve) => {
