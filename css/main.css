@@ -65,7 +65,7 @@ h3 {
   .slider-container,
   .slider-shell,
   .slider-viewport {
-    width: min(100%, 370px);
+    width: min(100%, 380px);
   }
 
   .slider-shell::before,
@@ -151,12 +151,12 @@ h3 {
   }
 
   .component-image {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
   }
 
   .component-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .content-container {
@@ -175,6 +175,6 @@ h3 {
   }
 
   #restart-button {
-  width: 300px;
-}
+    width: 300px;
+  }
 }
