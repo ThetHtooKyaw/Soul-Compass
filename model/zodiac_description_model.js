@@ -15,7 +15,7 @@ export const zodiacDescriptionList = {
     compatibility:
       "You find natural harmony with the air signs (Gemini, Libra, Aquarius), who fan your flames into roaring ideas, and fellow fire signs who match your relentless pulse.",
   }),
-  TAURUS: new DescriptionModel({
+  Taurus: new DescriptionModel({
     sunSign:
       "Your essence is rooted deep within the bedrock of the earth, steady, enduring, and quietly holding the weight of the world on broad shoulders. Your ego is anchored in quiet strength, finding your truest reflection not in loud words, but in tangible creations and lasting peace. You move at the rhythm of the seasons—slow, deliberate, and impossible to move once your roots take hold.",
     strengths:
