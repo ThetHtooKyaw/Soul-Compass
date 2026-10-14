@@ -52,6 +52,62 @@ h3 {
   display: none !important;
 }
 
+.developer-credit {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 5px;
+
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  font-family: "Questrial", sans-serif;
+
+  background: rgba(107, 33, 168, 0.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 8px 18px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.32);
+
+  opacity: 0.85;
+  z-index: 1000;
+
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.developer-credit:hover {
+  transform: translateX(-50%) translateY(-6px);
+  background: rgba(107, 33, 168, 0.5);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+  opacity: 1;
+}
+
+.developer-credit .name {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #e8dbf5;
+  -webkit-mask: url("../assets/icons/open.webp") no-repeat center / contain;
+  mask: url("../assets/icons/open.webp") no-repeat center / contain;
+}
+
 @media (max-width: 600px) {
   #input-container {
     padding: 60px 20px;

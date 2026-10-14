@@ -1,158 +1,161 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Horoscope App</title>
 
-    <!-- Import from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horoscope App</title>
 
-    <link href="./css/main.css" rel="stylesheet" />
-    <script src="./js/main.js" type="module"></script>
-  </head>
-  <body>
-    <!-- Loader -->
-    <div id="loader">
-      <div class="loader-animater"></div>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+
+  <!-- Stylesheet -->
+  <link href="./css/main.css" rel="stylesheet" />
+
+  <!-- Main JS -->
+  <script src="./js/main.js" type="module"></script>
+</head>
+
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-animater"></div>
+  </div>
+
+  <!-- Landing View -->
+  <div id="input-container">
+    <!-- Wheel of Fortune -->
+    <div class="wheel-container">
+      <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
+      <img class="zodiac-wheel" src="assets/images/zodiac_wheel_white.webp" alt="Zodiac Wheel" />
     </div>
 
-    <!-- Landing View -->
-    <div id="input-container">
-      <!-- Wheel of Fortune -->
-      <div class="wheel-container">
-        <img class="pointer" src="assets/images/pointer.webp" alt="Pointer" />
-        <img
-          class="zodiac-wheel"
-          src="assets/images/zodiac_wheel_white.webp"
-          alt="Zodiac Wheel"
-        />
+    <!-- Slider Container -->
+    <div class="slider-container">
+      <!-- Year Slider -->
+      <div id="step-1" class="slider-row animate-fade-up">
+        <p class="slider-label">Under Which Year's Sky<br />Were You Born?</p>
+        <div class="slider-shell">
+          <div id="year-slider" class="slider-viewport"></div>
+        </div>
+        <button id="confirm-year" class="confirm_button" type="button">
+          Reveal Path
+        </button>
       </div>
 
-      <!-- Slider Container -->
-      <div class="slider-container">
-        <!-- Year Slider -->
-        <div id="step-1" class="slider-row animate-fade-up">
-          <p class="slider-label">Under Which Year's Sky<br />Were You Born?</p>
-          <div class="slider-shell">
-            <div id="year-slider" class="slider-viewport"></div>
-          </div>
-          <button id="confirm-year" class="confirm_button" type="button">
-            Reveal Path
+      <!-- Month Slider -->
+      <div id="step-2" class="slider-row display-none">
+        <p class="slider-label">In Which Month<br />Stars Begin to Align?</p>
+        <div class="slider-shell">
+          <div id="month-slider" class="slider-viewport"></div>
+        </div>
+
+        <div class="button-container">
+          <button id="cancel-month" class="cancel_button" type="button">
+            Return
+          </button>
+          <button id="confirm-month" class="confirm_button" type="button">
+            Bind Stars
           </button>
         </div>
+      </div>
 
-        <!-- Month Slider -->
-        <div id="step-2" class="slider-row display-none">
-          <p class="slider-label">In Which Month<br />Stars Begin to Align?</p>
-          <div class="slider-shell">
-            <div id="month-slider" class="slider-viewport"></div>
-          </div>
-
-          <div class="button-container">
-            <button id="cancel-month" class="cancel_button" type="button">
-              Return
-            </button>
-            <button id="confirm-month" class="confirm_button" type="button">
-              Bind Stars
-            </button>
-          </div>
+      <!-- Day Slider -->
+      <div id="step-3" class="slider-row display-none">
+        <p class="slider-label">
+          On Which Day Alignment<br />Become Complete?
+        </p>
+        <div class="slider-shell">
+          <div id="day-slider" class="slider-viewport"></div>
         </div>
+        <div class="button-container">
+          <button id="cancel-day" class="cancel_button" type="button">
+            Return
+          </button>
+          <button id="confirm-day" class="confirm_button" type="button">
+            Seal Destiny
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Day Slider -->
-        <div id="step-3" class="slider-row display-none">
-          <p class="slider-label">
-            On Which Day Alignment<br />Become Complete?
-          </p>
-          <div class="slider-shell">
-            <div id="day-slider" class="slider-viewport"></div>
-          </div>
-          <div class="button-container">
-            <button id="cancel-day" class="cancel_button" type="button">
-              Return
-            </button>
-            <button id="confirm-day" class="confirm_button" type="button">
-              Seal Destiny
-            </button>
-          </div>
+  <!-- Result View -->
+  <div id="result-container" class="display-none">
+    <!-- Sign Image -->
+    <div class="image-container">
+      <img class="sign-image" src="" alt="Sign Image" />
+    </div>
+
+    <!-- Sign Name and Date -->
+    <h2 class="sign-title"></h2>
+    <p class="sign-date"></p>
+
+    <!-- Sign Components -->
+    <div class="sign-components">
+      <!-- Sign Element -->
+      <div class="dropdown-wrapper">
+        <button id="element-button" class="component-label">Element</button>
+        <div id="element-container" class="component-container">
+          <img id="element-image" class="component-image" src="" alt="Element Image" />
+          <h3 id="element-title" class="component-title"></h3>
+        </div>
+      </div>
+
+      <!-- Sign Planet -->
+      <div class="dropdown-wrapper">
+        <button id="planet-button" class="component-label">Planet</button>
+        <div id="planet-container" class="component-container">
+          <img id="planet-image" class="component-image" src="" alt="Planet Symbol" />
+          <h3 id="planet-title" class="component-title"></h3>
         </div>
       </div>
     </div>
 
-    <!-- Result View -->
-    <div id="result-container" class="display-none">
-      <!-- Sign Image -->
-      <div class="image-container">
-        <img class="sign-image" src="" alt="Sign Image" />
-      </div>
-
-      <!-- Sign Name and Date -->
-      <h2 class="sign-title"></h2>
-      <p class="sign-date"></p>
-
-      <!-- Sign Components -->
-      <div class="sign-components">
-        <!-- Sign Element -->
-        <div class="dropdown-wrapper">
-          <button id="element-button" class="component-label">Element</button>
-          <div id="element-container" class="component-container">
-            <img
-              id="element-image"
-              class="component-image"
-              src=""
-              alt="Element Image"
-            />
-            <h3 id="element-title" class="component-title"></h3>
-          </div>
-        </div>
-
-        <!-- Sign Planet -->
-        <div class="dropdown-wrapper">
-          <button id="planet-button" class="component-label">Planet</button>
-          <div id="planet-container" class="component-container">
-            <img
-              id="planet-image"
-              class="component-image"
-              src=""
-              alt="Planet Symbol"
-            />
-            <h3 id="planet-title" class="component-title"></h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sun Sign Description -->
-      <div class="content-container">
-        <h3 class="content-title">True Self</h3>
-        <p id="sun-sign" class="content-description"></p>
-      </div>
-
-      <!-- Strengths Description -->
-      <div class="content-container">
-        <h3 class="content-title">Your Strengths</h3>
-        <p id="strengths" class="content-description"></p>
-      </div>
-
-      <!-- Weaknesses Description -->
-      <div class="content-container">
-        <h3 class="content-title">Your Weaknesses</h3>
-        <p id="weaknesses" class="content-description"></p>
-      </div>
-
-      <!-- Compatibility Description -->
-      <div class="content-container">
-        <h3 class="content-title">Compatibility</h3>
-        <p id="compatibility" class="content-description"></p>
-      </div>
-
-      <button id="restart-button" class="confirm_button" type="button">
-        Restart Journey
-      </button>
+    <!-- Sun Sign Description -->
+    <div class="content-container">
+      <h3 class="content-title">True Self</h3>
+      <p id="sun-sign" class="content-description"></p>
     </div>
-  </body>
+
+    <!-- Strengths Description -->
+    <div class="content-container">
+      <h3 class="content-title">Your Strengths</h3>
+      <p id="strengths" class="content-description"></p>
+    </div>
+
+    <!-- Weaknesses Description -->
+    <div class="content-container">
+      <h3 class="content-title">Your Weaknesses</h3>
+      <p id="weaknesses" class="content-description"></p>
+    </div>
+
+    <!-- Compatibility Description -->
+    <div class="content-container">
+      <h3 class="content-title">Compatibility</h3>
+      <p id="compatibility" class="content-description"></p>
+    </div>
+
+    <button id="restart-button" class="confirm_button" type="button">
+      Restart Journey
+    </button>
+  </div>
+
+  <footer class="developer-credit">
+    <a href="https://www.tonyportfolio.tech/" target="_blank" class="name">
+      <span>© Developed by</span>
+      <span>Tony</span>
+      <span class="icon"></span>
+    </a>
+  </footer>
+</body>
+
 </html>
